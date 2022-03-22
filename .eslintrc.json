@@ -1,0 +1,15 @@
+{
+	"root": true,
+	"parser": "@babel/eslint-parser",
+	"extends": [
+		"eslint:recommended",
+		"prettier"
+	],
+	"rules": {
+		"jsx-quotes": ["error", "prefer-double"],
+		"comma-dangle": ["error", "always-multiline"],
+		"object-curly-spacing": ["error", "always"],
+		"react/prop-types": "off"
+	},
+	"plugins": ["prettier"]
+}
