@@ -2,6 +2,7 @@ const { validateName } = require('../validators/name-validator');
 const { validateEmail } = require('../validators/email-validator');
 const { validatePhone } = require('../validators/phone-validator');
 const fs = require('fs');
+const { FILE_PATH } = require('../constants/FilesPathConstant');
 const { formatData } = require('../utils/data-formatter');
 
 class SchoolEventController {
@@ -44,7 +45,7 @@ class SchoolEventController {
 
   addSchoolData(data, folderName) {
     const content = formatData(data);
-    fs.writeFile(`$../../files/Schools/${folderName}/data.txt`, content, () => {});
+    fs.writeFile(`${FILE_PATH}Schools/${folderName}/data.txt`, content, () => {});
   }
 }
 

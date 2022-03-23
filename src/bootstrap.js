@@ -19,7 +19,7 @@ const upload = multer();
 
 app.use('/api/open-day', openDayRouter);
 app.use('/api/school-event', schoolEventRouter);
-app.use('/api/courses', coursesRouter);
+app.use('/api/courses'  , coursesRouter);
 app.use('/api/commission', upload.array('files'), commissionRouter);
 
 app.listen(port);

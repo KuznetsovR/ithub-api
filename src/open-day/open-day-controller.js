@@ -3,6 +3,7 @@ const { validateName } = require('../validators/name-validator');
 const { validateEmail } = require('../validators/email-validator');
 const { validatePhone } = require('../validators/phone-validator');
 const fs = require('fs');
+const {FILE_PATH} = require("../constants/FilesPathConstant");
 
 class OpenDayController {
   addVisitor(req, res) {
@@ -38,7 +39,7 @@ class OpenDayController {
 
   addSchoolData(data, folderName) {
     const content = formatData(data);
-    fs.writeFile(`$../../files/OpenDayVisitors/${folderName}/data.txt`, content, () => {});
+    fs.writeFile(`${FILE_PATH}OpenDayVisitors/${folderName}/data.txt`, content, () => {});
   }
 }
 

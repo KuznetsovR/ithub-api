@@ -3,6 +3,7 @@ const { validateName } = require('../validators/name-validator');
 const { validateEmail } = require('../validators/email-validator');
 const { validatePhone } = require('../validators/phone-validator');
 const fs = require('fs');
+const { FILE_PATH } = require('../constants/FilesPathConstant');
 const { formatData } = require('../utils/data-formatter');
 
 class CommissionController {
@@ -46,14 +47,14 @@ class CommissionController {
 
   addApplicantFiles(files, folderName) {
     for (const file of files) {
-      const filePath = `$../../files/Commission/${folderName}/${file.originalname}`;
+      const filePath = `${FILE_PATH}Commission/${folderName}/${file.originalname}`;
       fs.writeFile(filePath, file.buffer, () => {});
     }
   }
 
   addApplicantData(data, folderName) {
     const content = formatData(data);
-    fs.writeFile(`$../../files/Commission/${folderName}/data.txt`, content, () => {});
+    fs.writeFile(`${FILE_PATH}Commission/${folderName}/data.txt`, content, () => {});
   }
 }
 
