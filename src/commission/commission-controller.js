@@ -3,7 +3,6 @@ const { validateName } = require('../validators/name-validator');
 const { validateEmail } = require('../validators/email-validator');
 const { validatePhone } = require('../validators/phone-validator');
 const fs = require('fs');
-const { FILE_PATH } = require('../constants/FilesPathConstant');
 const { formatData } = require('../utils/data-formatter');
 
 class CommissionController {
@@ -40,21 +39,21 @@ class CommissionController {
 
   addToCatalog(applicant) {
     const currentTime = Date.now().toString().replaceAll(':', '.');
-    fs.mkdirSync('files/Commission' + currentTime);
+    fs.mkdirSync('files/Commission/' + currentTime);
     this.addApplicantFiles(applicant.files, currentTime);
     this.addApplicantData(applicant.data, currentTime);
   }
 
   addApplicantFiles(files, folderName) {
     for (const file of files) {
-      const filePath = `${FILE_PATH}Commission/${folderName}/${file.originalname}`;
+      const filePath = `files/Commission/${folderName}/${file.originalname}`;
       fs.writeFile(filePath, file.buffer, () => {});
     }
   }
 
   addApplicantData(data, folderName) {
     const content = formatData(data);
-    fs.writeFile(`${FILE_PATH}Commission/${folderName}/data.txt`, content, () => {});
+    fs.writeFile(`files/Commission/${folderName}/data.txt`, content, () => {});
   }
 }
 
