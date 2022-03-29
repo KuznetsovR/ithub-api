@@ -38,7 +38,7 @@ class CommissionController {
   }
 
   addToCatalog(applicant) {
-    const currentTime = Date.now().toString().replaceAll(':', '.');
+    const currentTime = Date.now();
     fs.mkdirSync('files/Commission/' + currentTime);
     this.addApplicantFiles(applicant.files, currentTime);
     this.addApplicantData(applicant.data, currentTime);

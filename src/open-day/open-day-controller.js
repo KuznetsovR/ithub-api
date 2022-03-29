@@ -33,7 +33,7 @@ class OpenDayController {
     throw new Error('Incorrect visitor data');
   }
   addToCatalog(visitor) {
-    const currentTime = Date.now().toString().replaceAll(':', '.');
+    const currentTime = Date.now();
     fs.mkdirSync('files/OpenDayVisitors/' + currentTime);
     this.addSchoolData(visitor, currentTime);
   }

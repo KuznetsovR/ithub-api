@@ -31,7 +31,7 @@ class CoursesController {
     throw new Error('Incorrect applicant data');
   }
   addToCatalog(applicant) {
-    const currentTime = Date.now().toString().replaceAll(':', '.');
+    const currentTime = Date.now();
     fs.mkdirSync('files/Courses/' + currentTime);
     this.addApplicantData(applicant, currentTime);
   }

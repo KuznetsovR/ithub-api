@@ -37,7 +37,7 @@ class SchoolEventController {
   }
 
   addToCatalog(school) {
-    const currentTime = Date.now().toString().replaceAll(':', '.');
+    const currentTime = Date.now();
     fs.mkdirSync('files/Schools/' + currentTime);
     this.addSchoolData(school, currentTime);
   }
