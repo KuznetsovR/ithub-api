@@ -1,0 +1,13 @@
+[Unit]
+Description=Ithub-api-service
+
+[Service]
+ExecStart=/home/i21s998/ithub-api/src/bootstrap.js
+Restart=always
+Group=nogroup
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/home/i21s998/ithub-api/src/
+
+[Install]
+WantedBy=multi-user.target

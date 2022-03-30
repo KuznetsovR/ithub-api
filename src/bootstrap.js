@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const [express, port] = [require('express'), 1337];
 const { openDayRouter } = require('./open-day/open-day-router');
 const cors = require('cors');

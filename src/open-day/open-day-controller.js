@@ -22,7 +22,8 @@ class OpenDayController {
   validateVisitor(visitor) {
     if (
       visitor &&
-      validateName(visitor.name) &&
+      validateName(visitor.childName) &&
+      validateName(visitor.parentName) &&
       validatePhone(visitor.phone) &&
       validateEmail(visitor.email) &&
       typeof visitor.date === 'string' &&

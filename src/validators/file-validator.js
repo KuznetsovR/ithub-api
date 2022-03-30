@@ -1,4 +1,4 @@
-const defaultAllowedExtensionsRegex = /(\.doc|\.docx|\.rtf|\.pdf|\.odt|\.jpeg|\.png|\.gif)$/i;
+const defaultAllowedExtensionsRegex = /(\.doc|\.docx|\.rtf|\.pdf|\.odt|\.jpeg|\.png|\.gif|\.zip)$/i;
 
 const validateFiles = (files, extensionsRegex) => {
   const regex = extensionsRegex || defaultAllowedExtensionsRegex;
