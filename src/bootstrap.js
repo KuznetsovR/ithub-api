@@ -11,7 +11,7 @@ const app = express();
 const https = require('https')
 const fs = require('fs')
 
-app.use(cors({ origin: 'https://priem.it-college.ru/main/*' }));
+app.use(cors({ origin: '*' }));
 
 
 const httpsOptions = {
@@ -31,4 +31,4 @@ app.use('/api/school-event', schoolEventRouter);
 app.use('/api/courses'  , coursesRouter);
 app.use('/api/commission', upload.array('files'), commissionRouter);
 
-https.createServer(app).listen(port, ()=> console.log('server started'))
+https.createServer(httpsOptions, app).listen(port, ()=> console.log('server started'))
