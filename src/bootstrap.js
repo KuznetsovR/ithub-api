@@ -11,7 +11,6 @@ const app = express();
 const https = require('https')
 const fs = require('fs')
 
-app.use(cors({ origin: '*' }));
 
 
 const httpsOptions = {
