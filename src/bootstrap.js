@@ -8,8 +8,16 @@ const { schoolEventRouter } = require('./school-event/school-event-router');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const app = express();
+const https = require('https')
+const fs = require('fs')
 
 app.use(cors({ origin: '*' }));
+
+
+const httpsOptions = {
+    key: fs.readFileSync("certificate/portal_it-college_ru.key"), // путь к ключу
+    cert: fs.readFileSync("certificate/portal_it-college_ru.crt") // путь к сертификату
+}
 
 const jsonParser = bodyParser.json();
 const urlencodedParser = bodyParser.urlencoded({ extended: true });
@@ -23,4 +31,4 @@ app.use('/api/school-event', schoolEventRouter);
 app.use('/api/courses'  , coursesRouter);
 app.use('/api/commission', upload.array('files'), commissionRouter);
 
-app.listen(port);
+https.createServer(httpsOptions, app).listen(port, ()=> console.log('server started'))
